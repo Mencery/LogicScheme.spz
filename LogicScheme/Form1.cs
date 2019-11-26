@@ -19,42 +19,60 @@ namespace LogicScheme
             drawedLines = new List<DrawLine>();
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Method to create illustrated element  on the button  at the point at which the cursor were at the moment mouse up
+        /// </summary>
+        /// <param name="sender"> button1 </param>
+        /// <param name="e"> parameters of mouse event</param>
         private void button1_MouseUp(object sender, MouseEventArgs e)
         {
             var or = new OrElement();
 
             or.Size = new Size(108, 48);
             or.Location = new Point(e.X, e.Y);
-            
 
 
 
 
 
-              or.MouseDown += new MouseEventHandler(element_MouseDown);
+          
+            or.MouseDown += new MouseEventHandler(element_MouseDown);
+           // or.Output.MouseDown += new MouseEventHandler(element_MouseDown);
             or.MouseUp += new MouseEventHandler(element_MouseUp);
             or.MouseMove += new MouseEventHandler(element_MouseMove);
+          //  or.MouseDown += new MouseEventHandler(or.Output_MouseDown);
             or.Visible = true;
-           
-          
+        
 
-           
 
             userControls.Add(or);
             Controls.Add(or);
          
            
         }
-
-
+        
+      
         bool isClicked = false;
-        private void element_MouseDown(object sender, MouseEventArgs e)
+        /// <summary>
+        /// start of paint connection line 
+        /// </summary>
+        /// <param name="sender">logic element</param>
+        /// <param name="e">parameters of mouse event</param>
+        public void element_MouseDown(object sender, MouseEventArgs e)
         {
-            drawLine = new DrawLine();
-            drawLine.setStartPoint (e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
+           
+            if((sender as IElementForm).startDrawLine()) {
+                drawLine = new DrawLine();
+                drawLine.setStartPoint (e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
+                
             isClicked = true;
+            }
         }
+        /// <summary>
+        /// painting connection line 
+        /// </summary>
+        /// <param name="sender">logic element</param>
+        /// <param name="e">parameters of mouse event</param>
         private void element_MouseMove(object sender, MouseEventArgs e)
         {
             if (isClicked)
@@ -63,7 +81,11 @@ namespace LogicScheme
                 Invalidate();
             }
         }
-
+        /// <summary>
+        /// end of painting connection line and create connection, if logic element found, else delete line
+        /// </summary>
+        /// <param name="sender">logic element</param>
+        /// <param name="e">parameters of mouse event</param>
         private void element_MouseUp(object sender, MouseEventArgs e)
         {
             isClicked = false;
@@ -86,6 +108,12 @@ namespace LogicScheme
 
 
         }
+        /// <summary>
+        /// find logic element by position
+        /// </summary>
+        /// <param name="e">parameters of mouse event from   element_MouseUp(object sender, MouseEventArgs e)</param>
+        /// <param name="input">input logic element</param>
+        /// <returns>found element</returns>
         UserControl getElementByPosition(MouseEventArgs e, UserControl input)
         {
             UserControl userControl = null;
@@ -104,8 +132,12 @@ namespace LogicScheme
             return userControl;
 
         }
-      
 
+        /// <summary>
+        /// procces of painting in form
+        /// </summary>
+        /// <param name="sender">form1</param>
+        /// <param name="e"> Paint parameters</param>
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.Black);

@@ -16,6 +16,9 @@ namespace LogicScheme
         {
             pointStart.X = x;
             pointStart.Y = y;
+            pointEnd.X = x;
+            pointEnd.Y = y;
+
         }
         public void draw(int x, int y)
         {
@@ -55,11 +58,17 @@ namespace LogicScheme
             
             
         }
+        /// <summary>
+        /// save line that finished drawing
+        /// </summary>
         public void save()
         {
             twoPoints.Add(new TwoPoints(pointStart, pointEnd));
         }
-        public  void delete()
+        /// <summary>
+        /// delete line that didn't connect
+        /// </summary>
+        public void delete()
         {
             pointStart.X = 0;
             pointStart.Y = 0;
@@ -79,7 +88,12 @@ namespace LogicScheme
         {
             return twoPoints;
         }
-       bool rangeX(int x )
+        /// <summary>
+        /// range in which we can draw a straight line
+        /// </summary>
+        /// <param name="x,y">input position of cursor</param>
+        /// <returns></returns>
+        bool rangeX(int x )
         {
             int range = 7; 
             return x + range >= pointStart.X && x - range <= pointStart.X; 

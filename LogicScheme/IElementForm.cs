@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace LogicScheme
 {
-    interface IElement
+    interface IElementForm
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        void connect();
-        void execute();
-    }
+        bool startDrawLine();
+     }
 }
