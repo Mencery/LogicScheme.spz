@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using LogicScheme.Algorithm;
 namespace LogicScheme
 {
 
@@ -169,38 +169,7 @@ namespace LogicScheme
 
         public bool getElementByPosition(MouseEventArgs e, UserControl input)
         {
-            int input_x = e.X + input.Location.X;
-            int input_y = e.Y + input.Location.Y;
-            int x, y;
-
-            for (int i = 0; i < ports.Length; i++)
-            {
-
-                x = ports[i].Location.X + Location.X;
-                y = ports[i].Location.Y + Location.Y;
-
-                if (x <= input_x && x + ports[i].Width >= input_x && y <= input_y && y + ports[i].Height >= input_y)
-                {
-                    if ((input as IElementForm).getIndexOfPortThatConnect() == 0)
-                    {
-                        (input as IElementForm).getElement().connect(getElement(), true, i - 1);
-                    }
-                    else if ((input as IElementForm).getIndexOfPortThatConnect() > 0)
-                    {
-                        getElement().connect((input as IElementForm).getElement(), false,
-                            (input as IElementForm).getIndexOfPortThatConnect() - 1);
-                    }
-                    else
-                    {
-                        throw new NullReferenceException();
-                    }
-                    (input as IElementForm).connectPortChecked();
-                    ports[i].Checked = true;
-                    return true;
-                }
-
-            }
-            return false;
+            return GetElementByPosition.execute(e, input, this, ports);
         }
 
         public int getIndexOfPortThatConnect()
