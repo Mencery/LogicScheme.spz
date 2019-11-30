@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace LogicScheme
 {
-    enum State
-    {
-        False,
-        True,
-        X
-    }
+    
+        
+      public  enum StdLogicState
+        {
+            False,
+            True,
+            X
+        }
+    
+   
 }

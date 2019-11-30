@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+
 using System.Collections.Generic;
 
 using System.Drawing;
@@ -11,7 +12,7 @@ namespace LogicScheme
     {
         List<UserControl> userControls;
         List<DrawLine> drawedLines;
-        DrawLine drawLine = new DrawLine() ;
+        DrawLine drawLine = new DrawLine();
 
         public Form1()
         {
@@ -35,23 +36,23 @@ namespace LogicScheme
 
 
 
-          
+
             or.MouseDown += new MouseEventHandler(element_MouseDown);
-           // or.Output.MouseDown += new MouseEventHandler(element_MouseDown);
+            // or.Output.MouseDown += new MouseEventHandler(element_MouseDown);
             or.MouseUp += new MouseEventHandler(element_MouseUp);
             or.MouseMove += new MouseEventHandler(element_MouseMove);
-          //  or.MouseDown += new MouseEventHandler(or.Output_MouseDown);
+            //  or.MouseDown += new MouseEventHandler(or.Output_MouseDown);
             or.Visible = true;
-        
+
 
 
             userControls.Add(or);
             Controls.Add(or);
-         
-           
+
+
         }
-        
-      
+
+
         bool isClicked = false;
         /// <summary>
         /// start of paint connection line 
@@ -60,13 +61,13 @@ namespace LogicScheme
         /// <param name="e">parameters of mouse event</param>
         public void element_MouseDown(object sender, MouseEventArgs e)
         {
-           
-            if((sender as IElementForm).startDrawLine()) {
+
+         
                 drawLine = new DrawLine();
-                drawLine.setStartPoint (e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
-                
-            isClicked = true;
-            }
+                drawLine.setStartPoint(e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
+
+                isClicked = true;
+            
         }
         /// <summary>
         /// painting connection line 
@@ -77,7 +78,7 @@ namespace LogicScheme
         {
             if (isClicked)
             {
-                drawLine.draw(e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y); 
+                drawLine.draw(e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
                 Invalidate();
             }
         }
@@ -90,10 +91,10 @@ namespace LogicScheme
         {
             isClicked = false;
             drawLine.save();
-           
+
             UserControl input = sender as UserControl;
-            UserControl output = getElementByPosition(e,input);
-            if(output == null)
+            UserControl output = getElementByPosition(e, input);
+            if (output == null)
             {
                 drawLine.delete();
                 Invalidate();
@@ -102,9 +103,9 @@ namespace LogicScheme
             else
             {
                 drawedLines.Add(drawLine);
-                output.Visible = false;
+                (output as IElementForm).getElementByPosition(e, input); 
             }
-           
+
 
 
         }
@@ -122,9 +123,9 @@ namespace LogicScheme
             int x, y;
             foreach (var element in userControls)
             {
-                x = element.Location.X ;
+                x = element.Location.X;
                 y = element.Location.Y;
-                if (x<= input_x && x+108>= input_x && y<= input_y && y + 48 >= input_y)
+                if (x <= input_x && x + 108 >= input_x && y <= input_y && y + 48 >= input_y)
                 {
                     userControl = element;
                 }
@@ -155,6 +156,7 @@ namespace LogicScheme
             }
         }
 
-      
+
     }
 }
+
