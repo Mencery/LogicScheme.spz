@@ -19,7 +19,8 @@ namespace LogicScheme
             userControls = new List<UserControl>();
             drawedLines = new List<DrawLine>();
             InitializeComponent();
-            userControls.Add(signalBox1);
+           userControls.Add(signalBoxTrue1);
+            userControls.Add(signalBoxFalse1);
         }
         /// <summary>
         /// Method to create illustrated element  on the button  at the point at which the cursor were at the moment mouse up
@@ -157,7 +158,10 @@ namespace LogicScheme
             }
         }
 
-       
+        private void signalBoxTrue1_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
 

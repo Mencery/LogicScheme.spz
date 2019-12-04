@@ -24,13 +24,17 @@ namespace LogicScheme
 
             if (fromOutputToInput) { 
                 Inputs[indexOfInput] = outer.Output;
+
+             
                 }
             else
             {
+              
                 outer.Output = Inputs[indexOfInput];
             }
 
            
+            execute();
 
         }
        
@@ -43,7 +47,14 @@ namespace LogicScheme
             }
             else
             {
-                Output = StdLogicState.False;
+                if(!(StdLogicState.X.Equals(Inputs[0]) && StdLogicState.X.Equals(Inputs[1])))
+                {
+                    Output = StdLogicState.False;
+                }
+                
+
+              
+               
             }
         }
     }

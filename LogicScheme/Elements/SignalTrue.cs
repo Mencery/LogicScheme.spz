@@ -14,6 +14,7 @@ namespace LogicScheme.Elements
         public override void connect(Element outer, bool fromOutputToInput, int indexOfInput = 0)
         {
             outer.Inputs[indexOfInput] = Output;
+            outer.execute();
         }
 
         public override void execute()

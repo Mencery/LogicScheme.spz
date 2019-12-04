@@ -4,27 +4,25 @@ using LogicScheme.Elements;
 using LogicScheme.Algorithm;
 namespace LogicScheme.SignalBox
 {
-    class SignalBox : UserControl, IElementForm
+    class SignalBoxTrue : UserControl, IElementForm
     {
         private SignalTrue signalTrue;
-        private SignalFalse signalFalse;
+       
         private RadioButton TrueButton;
         private RadioButton[] ports;
-        private int indexOfConnectPort = -1;
+       
         private Label True;
-        private Label False;
-        private BindingSource bindingSource1;
+    
         private System.ComponentModel.IContainer components;
-        private RadioButton FalseButton;
 
 
-        public SignalBox(){
+        public SignalBoxTrue(){
             signalTrue = new SignalTrue();
-            signalFalse = new SignalFalse();
-            ports = new RadioButton[2];
+          
+            ports = new RadioButton[1];
             InitializeComponent();
             ports[0] = TrueButton;
-            ports[1] = FalseButton;
+           
         }
 
         private void InitializeComponent()
@@ -32,10 +30,7 @@ namespace LogicScheme.SignalBox
             this.components = new System.ComponentModel.Container();
             this.TrueButton = new System.Windows.Forms.RadioButton();
             this.True = new System.Windows.Forms.Label();
-            this.False = new System.Windows.Forms.Label();
-            this.FalseButton = new System.Windows.Forms.RadioButton();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            
             this.SuspendLayout();
             // 
             // TrueButton
@@ -63,60 +58,24 @@ namespace LogicScheme.SignalBox
             this.True.TabIndex = 1;
             this.True.Text = "True";
             // 
-            // False
+            // SignalBoxTrue
             // 
-            this.False.AutoSize = true;
-            this.False.Location = new System.Drawing.Point(-1, 36);
-            this.False.Name = "False";
-            this.False.Size = new System.Drawing.Size(32, 13);
-            this.False.TabIndex = 3;
-            this.False.Text = "False";
-            // 
-            // FalseButton
-            // 
-            this.FalseButton.AutoSize = true;
-            this.FalseButton.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.FalseButton.Location = new System.Drawing.Point(34, 36);
-            this.FalseButton.Name = "FalseButton";
-            this.FalseButton.Size = new System.Drawing.Size(14, 13);
-            this.FalseButton.TabIndex = 2;
-            this.FalseButton.TabStop = true;
-            this.FalseButton.UseMnemonic = false;
-            this.FalseButton.UseVisualStyleBackColor = true;
-            this.FalseButton.CheckedChanged += new System.EventHandler(this.FalseButton_CheckedChanged);
-            this.FalseButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseDown);
-            this.FalseButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseMove);
-            this.FalseButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseUp);
-            // 
-            // SignalBox
-            // 
-            this.Controls.Add(this.False);
-            this.Controls.Add(this.FalseButton);
             this.Controls.Add(this.True);
             this.Controls.Add(this.TrueButton);
-            this.Name = "SignalBox";
-            this.Size = new System.Drawing.Size(51, 53);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            this.Name = "SignalBoxTrue";
+            this.Size = new System.Drawing.Size(51, 18);
+            this.Load += new System.EventHandler(this.SignalBox_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private void FalseButton_CheckedChanged(object sender, System.EventArgs e)
-        {
-
-        }
+      
 
         private void RadioButton_MouseDown(object sender, MouseEventArgs e)
         {
-            for (int i = 0; i < ports.Length; i++)
-            {
-                if (ports[i] == sender)
-                {
-                    indexOfConnectPort = i;
-                    break;
-                }
-            }
+           
             OnMouseDown(new MouseEventArgs(e.Button, e.Clicks, (sender as RadioButton).Location.X + (sender as RadioButton).Size.Width / 2, (sender as RadioButton).Location.Y + (sender as RadioButton).Size.Height / 2, e.Delta));
         }
 
@@ -136,16 +95,25 @@ namespace LogicScheme.SignalBox
         }
         public int getIndexOfPortThatConnect()
         {
-            return indexOfConnectPort;
+            return 0;
         }
         public Element getElement()
         {
-            
-            return indexOfConnectPort== 0 ? signalTrue as Element: signalFalse;
+
+         
+                return signalTrue;
+           
+           
+             
         }
         public void connectPortChecked()
         {
-            ports[indexOfConnectPort].Checked = true;
+            ports[0].Checked = true;
+        }
+
+        private void SignalBox_Load(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

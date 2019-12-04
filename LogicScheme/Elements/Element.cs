@@ -17,5 +17,8 @@ namespace LogicScheme
         public abstract void connect(Element outer,bool fromOutputToInput, int indexOfInput=0);
        
         public abstract void execute();
+        public StdLogicState getOutput() {
+            return Output;
+        }
     }
 }

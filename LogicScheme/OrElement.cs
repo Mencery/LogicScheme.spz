@@ -13,8 +13,9 @@ namespace LogicScheme
         private int indexOfConnectPort = -1;
         public RadioButton Output;
         Panel[] groupButtons;
+        private Label label1;
         Or2in1 or2In1;
-
+      
         public OrElement()
         {
 
@@ -35,6 +36,7 @@ namespace LogicScheme
             this.Input2 = new System.Windows.Forms.RadioButton();
             this.Input1 = new System.Windows.Forms.RadioButton();
             this.Output = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Input2
@@ -87,19 +89,28 @@ namespace LogicScheme
             this.Output.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Output_MouseMove);
             this.Output.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Output_MouseUp);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(81, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 3;
+            // 
             // OrElement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::LogicScheme.Properties.Resources._120px1;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.Input1);
             this.Controls.Add(this.Input2);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "OrElement";
-            this.Size = new System.Drawing.Size(108, 48);
-            this.Load += new System.EventHandler(this.OrElement_Load);
+            this.Size = new System.Drawing.Size(110, 48);
+            this.Click += new System.EventHandler(this.OrElement_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,11 +121,7 @@ namespace LogicScheme
 
         }
 
-        private void OrElement_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        
 
 
         private void Output_MouseClick(object sender, MouseEventArgs e)
@@ -185,6 +192,11 @@ namespace LogicScheme
             ports[indexOfConnectPort].Checked = true;
         }
 
+        private void OrElement_Click(object sender, EventArgs e)
+        {
+            label1.Text = or2In1.Output.ToString();
+        }
 
+        
     }
 }

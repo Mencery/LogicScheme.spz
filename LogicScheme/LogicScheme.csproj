@@ -57,7 +57,13 @@
     <Compile Include="Elements\SignalFalse.cs" />
     <Compile Include="Elements\SignalTrue.cs" />
     <Compile Include="IElementForm.cs" />
-    <Compile Include="SignalBox\SignalBox.cs">
+    <Compile Include="SignalBoxes\SignalBoxFalse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SignalBoxes\SignalBoxFalse.Designer.cs">
+      <DependentUpon>SignalBoxFalse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignalBoxes\SignalBoxTrue\SignalBoxTrue.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="State.cs" />
@@ -94,8 +100,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SignalBox\SignalBox.resx">
-      <DependentUpon>SignalBox.cs</DependentUpon>
+    <EmbeddedResource Include="SignalBoxes\SignalBoxFalse.resx">
+      <DependentUpon>SignalBoxFalse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignalBoxes\SignalBoxTrue\SignalBoxTrue.resx">
+      <DependentUpon>SignalBoxTrue.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

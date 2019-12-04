@@ -26,7 +26,8 @@ namespace LogicScheme.Algorithm
                 {
                     if ((input as IElementForm).getIndexOfPortThatConnect() == 0)
                     {
-                        (input as IElementForm).getElement().connect((output as IElementForm).getElement(), true, i - 1);
+                        (output as IElementForm).getElement().connect(( input as IElementForm).getElement(), true, i - 1);
+
                     }
                     else if ((input as IElementForm).getIndexOfPortThatConnect() > 0)
                     {
