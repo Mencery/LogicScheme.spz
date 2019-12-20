@@ -22,6 +22,7 @@ namespace LogicScheme
             or2In1 = new Or2in1();
 
             InitializeComponent();
+            label1.Text = or2In1.Output.ToString();
             ports = new RadioButton[3];
             ports[0] = Output;
             ports[1] = Input1;
@@ -51,6 +52,7 @@ namespace LogicScheme
             this.Input2.TabStop = true;
             this.Input2.UseMnemonic = false;
             this.Input2.UseVisualStyleBackColor = true;
+            this.Input2.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             this.Input2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Output_MouseDown);
             this.Input2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Output_MouseMove);
             this.Input2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Output_MouseUp);
@@ -67,6 +69,7 @@ namespace LogicScheme
             this.Input1.TabStop = true;
             this.Input1.UseMnemonic = false;
             this.Input1.UseVisualStyleBackColor = true;
+            this.Input1.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             this.Input1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Output_MouseDown);
             this.Input1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Output_MouseMove);
             this.Input1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Output_MouseUp);
@@ -83,8 +86,6 @@ namespace LogicScheme
             this.Output.TabStop = true;
             this.Output.UseMnemonic = false;
             this.Output.UseVisualStyleBackColor = true;
-            this.Output.CheckedChanged += new System.EventHandler(this.Output_CheckedChanged);
-            this.Output.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Output_MouseClick);
             this.Output.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Output_MouseDown);
             this.Output.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Output_MouseMove);
             this.Output.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Output_MouseUp);
@@ -116,23 +117,7 @@ namespace LogicScheme
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-
-        private void Output_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void Output_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
 
         public void Output_MouseDown(object sender, MouseEventArgs e)
@@ -159,8 +144,9 @@ namespace LogicScheme
         {
 
 
-
+            
             OnMouseUp(new MouseEventArgs(e.Button, e.Clicks, (sender as RadioButton).Location.X + e.X, (sender as RadioButton).Location.Y + e.Y, e.Delta));
+
 
         }
 
@@ -189,7 +175,9 @@ namespace LogicScheme
         }
         public void connectPortChecked()
         {
+            
             ports[indexOfConnectPort].Checked = true;
+            
         }
 
         private void OrElement_Click(object sender, EventArgs e)
@@ -197,6 +185,9 @@ namespace LogicScheme
             label1.Text = or2In1.Output.ToString();
         }
 
-        
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            label1.Text = or2In1.Output.ToString();
+        }
     }
 }

@@ -8,9 +8,10 @@ namespace LogicScheme
 {
     class Or2in1 : Element
     {
+
        
         
-
+        
         public Or2in1()
         {
             Inputs = new StdLogicState[2];
@@ -22,6 +23,7 @@ namespace LogicScheme
         public override void connect(Element outer, bool fromOutputToInput, int indexOfInput = 0)
         {
 
+           
             if (fromOutputToInput) { 
                 Inputs[indexOfInput] = outer.Output;
 

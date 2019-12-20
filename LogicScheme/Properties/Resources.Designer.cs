@@ -103,10 +103,110 @@ namespace LogicScheme.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AND_SW {
+            get {
+                object obj = ResourceManager.GetObject("AND_SW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap and1 {
+            get {
+                object obj = ResourceManager.GetObject("and1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap and120px_ {
+            get {
+                object obj = ResourceManager.GetObject("and120px ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EOR_SW {
+            get {
+                object obj = ResourceManager.GetObject("EOR_SW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imgbin_xor_gate_nand_gate_nand_logic_exclusive_or_logic_gate_birde_aPEt4zRP6w6yEwWNDT4Ydc7aZ {
             get {
                 object obj = ResourceManager.GetObject("imgbin-xor-gate-nand-gate-nand-logic-exclusive-or-logic-gate-birde-aPEt4zRP6w6yEw" +
                         "WNDT4Ydc7aZ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NAND {
+            get {
+                object obj = ResourceManager.GetObject("NAND", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NAND_SW {
+            get {
+                object obj = ResourceManager.GetObject("NAND_SW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Nor {
+            get {
+                object obj = ResourceManager.GetObject("Nor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NOR_SW {
+            get {
+                object obj = ResourceManager.GetObject("NOR_SW", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Not {
+            get {
+                object obj = ResourceManager.GetObject("Not", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NOT_SW {
+            get {
+                object obj = ResourceManager.GetObject("NOT_SW", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -197,6 +297,16 @@ namespace LogicScheme.Properties {
         internal static System.Drawing.Bitmap Stick2 {
             get {
                 object obj = ResourceManager.GetObject("Stick2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Xor {
+            get {
+                object obj = ResourceManager.GetObject("Xor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

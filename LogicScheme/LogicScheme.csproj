@@ -52,10 +52,32 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithm\Connect.cs" />
     <Compile Include="Algorithm\GetElementByPosition.cs" />
+    <Compile Include="Algorithm\СreateElement.cs" />
+    <Compile Include="ElementForm\AndElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="DrawLine.cs" />
+    <Compile Include="ElementForm\NandElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElementForm\NorElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElementForm\NotElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElementForm\XorElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Elements\And2in1.cs" />
+    <Compile Include="Elements\Nand2in1.cs" />
+    <Compile Include="Elements\Nor2in1.cs" />
+    <Compile Include="Elements\Not.cs" />
     <Compile Include="Elements\SignalFalse.cs" />
     <Compile Include="Elements\SignalTrue.cs" />
+    <Compile Include="Elements\Xor2in1.cs" />
     <Compile Include="IElementForm.cs" />
     <Compile Include="SignalBoxes\SignalBoxFalse.cs">
       <SubType>UserControl</SubType>
@@ -75,16 +97,31 @@
     </Compile>
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Elements\Or2in1.cs" />
-    <Compile Include="OrElement.cs">
+    <Compile Include="ElementForm\OrElement.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TwoPoints.cs" />
+    <EmbeddedResource Include="ElementForm\AndElement.resx">
+      <DependentUpon>AndElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElementForm\NandElement.resx">
+      <DependentUpon>NandElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElementForm\NorElement.resx">
+      <DependentUpon>NorElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElementForm\NotElement.resx">
+      <DependentUpon>NotElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElementForm\XorElement.resx">
+      <DependentUpon>XorElement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrElement.resx">
+    <EmbeddedResource Include="ElementForm\OrElement.resx">
       <DependentUpon>OrElement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -167,6 +204,38 @@
   <ItemGroup>
     <None Include="Resources\120px1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\and120px .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AND_SW.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\and1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Not.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NOT_SW.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NAND.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NAND_SW.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NOR_SW.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EOR_SW.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xor.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

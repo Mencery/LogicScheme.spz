@@ -8,8 +8,10 @@ namespace LogicScheme
 {
   public abstract class Element
     {
-         protected internal StdLogicState Output;
+        protected internal StdLogicState Output;
         protected internal StdLogicState[] Inputs;
+     
+       
 
         /// <summary>
         /// 
@@ -20,5 +22,8 @@ namespace LogicScheme
         public StdLogicState getOutput() {
             return Output;
         }
+       
+       
     }
+   
 }

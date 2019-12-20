@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Drawing;
 
 using System.Windows.Forms;
+using LogicScheme.Algorithm;
+
 
 namespace LogicScheme
 {
@@ -21,6 +23,7 @@ namespace LogicScheme
             InitializeComponent();
            userControls.Add(signalBoxTrue1);
             userControls.Add(signalBoxFalse1);
+            
         }
         /// <summary>
         /// Method to create illustrated element  on the button  at the point at which the cursor were at the moment mouse up
@@ -31,25 +34,7 @@ namespace LogicScheme
         {
             var or = new OrElement();
 
-            or.Size = new Size(108, 48);
-            or.Location = new Point(e.X, e.Y);
-
-
-
-
-
-
-            or.MouseDown += new MouseEventHandler(element_MouseDown);
-            // or.Output.MouseDown += new MouseEventHandler(element_MouseDown);
-            or.MouseUp += new MouseEventHandler(element_MouseUp);
-            or.MouseMove += new MouseEventHandler(element_MouseMove);
-            //  or.MouseDown += new MouseEventHandler(or.Output_MouseDown);
-            or.Visible = true;
-
-
-
-            userControls.Add(or);
-            Controls.Add(or);
+            СreateElement.create(this, or, userControls, e.X + button1.Location.X, e.Y);
 
 
         }
@@ -76,7 +61,7 @@ namespace LogicScheme
         /// </summary>
         /// <param name="sender">logic element</param>
         /// <param name="e">parameters of mouse event</param>
-        private void element_MouseMove(object sender, MouseEventArgs e)
+        public void element_MouseMove(object sender, MouseEventArgs e)
         {
             if (isClicked)
             {
@@ -89,7 +74,7 @@ namespace LogicScheme
         /// </summary>
         /// <param name="sender">logic element</param>
         /// <param name="e">parameters of mouse event</param>
-        private void element_MouseUp(object sender, MouseEventArgs e)
+        public void element_MouseUp(object sender, MouseEventArgs e)
         {
             isClicked = false;
             drawLine.save();
@@ -161,6 +146,46 @@ namespace LogicScheme
         private void signalBoxTrue1_Load(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void and2in1button_MouseUp(object sender, MouseEventArgs e)
+        {
+            var and = new AndElement();
+
+            СreateElement.create(this, and, userControls, e.X + and2in1button.Location.X, e.Y);
+        }
+
+        private void notbutton_MouseUp(object sender, MouseEventArgs e)
+        {
+            var not = new NotElement();
+
+            СreateElement.create(this, not, userControls, e.X + notbutton.Location.X, e.Y);
+        }
+
+        private void nand2in1button_MouseUp(object sender, MouseEventArgs e)
+        {
+            var nand = new NandElement();
+
+            СreateElement.create(this, nand, userControls, e.X + nand2in1button.Location.X, e.Y );
+        }
+
+        private void nor2in1button_MouseUp(object sender, MouseEventArgs e)
+        {
+            var nor = new NorElement();
+
+            СreateElement.create(this, nor, userControls, e.X + nor2in1button.Location.X, e.Y);
+        }
+
+        private void xor2in1button_MouseUp(object sender, MouseEventArgs e)
+        {
+            var xor = new XorElement();
+
+            СreateElement.create(this, xor, userControls, e.X + xor2in1button.Location.X, e.Y);
         }
     }
 }

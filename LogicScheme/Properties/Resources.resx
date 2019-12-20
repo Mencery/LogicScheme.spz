@@ -118,14 +118,26 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Not" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Not.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="and120px " type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\and120px .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Or4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Or4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AND_SW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AND_SW.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imgbin-xor-gate-nand-gate-nand-logic-exclusive-or-logic-gate-birde-aPEt4zRP6w6yEwWNDT4Ydc7aZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imgbin-xor-gate-nand-gate-nand-logic-exclusive-or-logic-gate-birde-aPEt4zRP6w6yEwWNDT4Ydc7aZ.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="120px-Logical_or.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\120px-Logical_or.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="120px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\120px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,11 +151,23 @@
   <data name="367-3674819_file-logical-or-svg-clipart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\367-3674819_file-logical-or-svg-clipart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EOR_SW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EOR_SW.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Stick1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stick1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Or2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Or2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NAND_SW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NAND_SW.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NOR_SW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NOR_SW.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NOT_SW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NOT_SW.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stick2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stick2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,13 +175,22 @@
   <data name="120px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\120px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Nor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Or" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Or.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NAND" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NAND.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="and1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\and1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OR_SW" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OR_SW.BMP;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="120px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\120px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Xor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Xor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
