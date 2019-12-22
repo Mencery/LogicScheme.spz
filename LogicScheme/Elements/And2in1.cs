@@ -1,7 +1,10 @@
 ﻿
 using LogicScheme.Algorithm;
+using System.Runtime.Serialization;
+
 namespace LogicScheme.Elements
 {
+    [DataContract]
     public class And2in1 : Element
     {
         public And2in1()

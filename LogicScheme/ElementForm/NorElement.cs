@@ -1,35 +1,33 @@
 ﻿using System;
 using System.Windows.Forms;
 using LogicScheme.Algorithm;
+using LogicScheme.ElementForm;
 using LogicScheme.Elements;
 
 namespace LogicScheme
 {
     [Serializable]
-    public partial class NorElement : UserControl, IElementForm
+    public partial class NorElement : MyUserControl, IElementForm
     {
-        //TODO private 
-        public RadioButton Input2;
-        public RadioButton Input1;
-        private RadioButton[] ports;
+        
+      
         private int indexOfConnectPort = -1;
-        public RadioButton Output;
-        Panel[] groupButtons;
-        private Label label1;
-        Nor2in1 nor2In1;
+      
+       
+       
 
         public NorElement()
         {
 
-            nor2In1 = new Nor2in1();
+            element = new Nor2in1();
 
             InitializeComponent();
-            label1.Text = nor2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
             ports = new RadioButton[3];
             ports[0] = Output;
             ports[1] = Input1;
             ports[2] = Input2;
-            groupButtons = new Panel[ports.Length];
+       
 
 
         }
@@ -175,7 +173,7 @@ namespace LogicScheme
         }
         public Element getElement()
         {
-            return nor2In1;
+            return element;
         }
         public void connectPortChecked()
         {
@@ -186,12 +184,12 @@ namespace LogicScheme
 
         private void OrElement_Click(object sender, EventArgs e)
         {
-            label1.Text = nor2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            label1.Text = nor2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
     }
 }

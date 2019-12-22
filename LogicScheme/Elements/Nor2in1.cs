@@ -1,8 +1,10 @@
 ﻿using LogicScheme.Algorithm;
+using System.Runtime.Serialization;
 
 namespace LogicScheme.Elements
 {
-    class Nor2in1 : Element
+    [DataContract]
+    public class Nor2in1 : Element
     {
 
 

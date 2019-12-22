@@ -37,6 +37,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,7 +57,9 @@
     <Compile Include="Algorithm\FillSerializebleContext.cs" />
     <Compile Include="Algorithm\FindElementByPosition.cs" />
     <Compile Include="Algorithm\GetElementByPosition.cs" />
+    <Compile Include="Algorithm\Load.cs" />
     <Compile Include="Algorithm\RecoverContext.cs" />
+    <Compile Include="Algorithm\Save.cs" />
     <Compile Include="Algorithm\Screenshot.cs" />
     <Compile Include="Algorithm\СreateElement.cs" />
     <Compile Include="ElementForm\AndElement.cs">
@@ -89,8 +92,10 @@
     <Compile Include="SerializationContext\SerializableUserControl.cs" />
     <Compile Include="SerializationContext\SerializableContext.cs" />
     <Compile Include="Serialization\Load\ILoad.cs" />
+    <Compile Include="Serialization\Load\LoadJSON.cs" />
     <Compile Include="Serialization\Load\LoadXml.cs" />
     <Compile Include="Serialization\Save\ISave.cs" />
+    <Compile Include="Serialization\Save\SaveAsJSON.cs" />
     <Compile Include="Serialization\Save\SaveAsXML.cs" />
     <Compile Include="ElementForm\SignalBoxes\SignalBoxFalse.cs">
       <SubType>UserControl</SubType>

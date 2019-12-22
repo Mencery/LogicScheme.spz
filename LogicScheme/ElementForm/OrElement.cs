@@ -1,43 +1,38 @@
 ﻿using System;
 using System.Windows.Forms;
 using LogicScheme.Algorithm;
+using LogicScheme.ElementForm;
+
 namespace LogicScheme
 {
     [Serializable]
-    public partial class OrElement : UserControl, IElementForm
+    public partial class OrElement : MyUserControl, IElementForm
     {
-        //TODO private 
-        public RadioButton Input2;
-        public RadioButton Input1;
-        private RadioButton[] ports;
+       
         private int indexOfConnectPort = -1;
-        public RadioButton Output;
-        Panel[] groupButtons;
-        private Label label1;
-        Or2in1 or2In1;
+        
+        
+      
       
         public OrElement()
         {
 
-            or2In1 = new Or2in1();
+            element = new Or2in1();
 
             InitializeComponent();
-            label1.Text = or2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
             ports = new RadioButton[3];
             ports[0] = Output;
             ports[1] = Input1;
             ports[2] = Input2;
-            groupButtons = new Panel[ports.Length];
+         
 
 
         }
 
         private void InitializeComponent()
         {
-            this.Input2 = new System.Windows.Forms.RadioButton();
-            this.Input1 = new System.Windows.Forms.RadioButton();
-            this.Output = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+         
             this.SuspendLayout();
             // 
             // Input2
@@ -171,7 +166,7 @@ namespace LogicScheme
         }
         public Element getElement()
         {
-            return or2In1;
+            return element;
         }
         public void connectPortChecked()
         {
@@ -182,12 +177,12 @@ namespace LogicScheme
 
         private void OrElement_Click(object sender, EventArgs e)
         {
-            label1.Text = or2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            label1.Text = or2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
     }
 }

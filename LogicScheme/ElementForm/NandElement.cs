@@ -1,46 +1,40 @@
 ﻿using System;
 using System.Windows.Forms;
 using LogicScheme.Algorithm;
+using LogicScheme.ElementForm;
 using LogicScheme.Elements;
 
 namespace LogicScheme
 {
     [Serializable]
-    public  class NandElement : UserControl, IElementForm
+    public  class NandElement : MyUserControl, IElementForm
     {
 
-        //TODO private 
-        public RadioButton Input2;
-        public RadioButton Input1;
-        private RadioButton[] ports;
+       
+       
         private int indexOfConnectPort = -1;
-        public RadioButton Output;
-        Panel[] groupButtons;
-        private Label label1;
-        Nand2in1 nand2In1;
+      
+        
 
         public NandElement()
         {
 
-            nand2In1 = new Nand2in1();
+            element = new Nand2in1();
 
             InitializeComponent();
-            label1.Text = nand2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
             ports = new RadioButton[3];
             ports[0] = Output;
             ports[1] = Input1;
             ports[2] = Input2;
-            groupButtons = new Panel[ports.Length];
+        
 
 
         }
 
         private void InitializeComponent()
         {
-            this.Input2 = new System.Windows.Forms.RadioButton();
-            this.Input1 = new System.Windows.Forms.RadioButton();
-            this.Output = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+         
             this.SuspendLayout();
             // 
             // Input2
@@ -95,11 +89,11 @@ namespace LogicScheme
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(81, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 3;
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(81, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(0, 13);
+            label1.TabIndex = 3;
             // 
             // NandElement
             // 
@@ -108,7 +102,7 @@ namespace LogicScheme
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::LogicScheme.Properties.Resources.NAND;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(label1);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.Input1);
             this.Controls.Add(this.Input2);
@@ -176,7 +170,7 @@ namespace LogicScheme
         }
         public Element getElement()
         {
-            return nand2In1;
+            return element;
         }
         public void connectPortChecked()
         {
@@ -187,12 +181,12 @@ namespace LogicScheme
 
         private void OrElement_Click(object sender, EventArgs e)
         {
-            label1.Text = nand2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            label1.Text = nand2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
 
     }

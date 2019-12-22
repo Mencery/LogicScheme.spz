@@ -197,8 +197,8 @@ namespace LogicScheme
         }
 
         #endregion
-        private SignalBoxes.SignalBoxTrue signalBoxTrue1;
-        private SignalBoxes.SignalBoxFalse signalBoxFalse1;
+        public SignalBoxes.SignalBoxTrue signalBoxTrue1;
+        public SignalBoxes.SignalBoxFalse signalBoxFalse1;
         private System.Windows.Forms.Button nand2in1button;
         private System.Windows.Forms.Button notbutton;
         private System.Windows.Forms.Button and2in1button;

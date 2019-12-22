@@ -13,8 +13,7 @@ namespace LogicScheme
 {
     public partial class Form1 : Form
     {
-        public static string XML_FORMAT = "XML files(.xml)|*.xml|all Files(*.*)|*.*";
-      
+       
        public List<UserControl> userControls;
         public List<DrawLine> drawedLines;
         DrawLine drawLine = new DrawLine();
@@ -160,38 +159,12 @@ namespace LogicScheme
             СreateElement.create(this, xor, userControls, e.X + xor2in1button.Location.X, e.Y);
         }
 
-        private void saveToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = XML_FORMAT;
+        private void saveToolStripMenuItem_Click(object sender, System.EventArgs e)=>
+            Save.execute(userControls, drawedLines);
+        
 
-            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
-                return;
-            string filename = saveFileDialog.FileName;
-
-
-            ISave save = new SaveAsXML();
-            save.execute(filename, userControls, drawedLines);
-            MessageBox.Show("saved");
-
-        }
-
-        private void loadToolStripMenuItem_Click(object sender, System.EventArgs e)
-        {
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-
-                openFileDialog.Filter = XML_FORMAT;
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-               string filePath = openFileDialog.FileName;
-                ILoad load = new LoadXml();
-               RecoverContext.recovery(this, load.execute(filePath));
-                
-            }
-
-        }
+        private void loadToolStripMenuItem_Click(object sender, System.EventArgs e)=>
+            LogicScheme.Algorithm.Load.execute(this, userControls,drawedLines);
 
         private void signalBoxTrue1_Load(object sender, System.EventArgs e)
         {

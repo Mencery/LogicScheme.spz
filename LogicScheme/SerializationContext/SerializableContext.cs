@@ -1,18 +1,15 @@
-﻿using LogicScheme.Elements;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace LogicScheme.SerializationContext
 {
-    
-   
+
+    [DataContract]
     public class SerializableContext
     {
+        [DataMember]
         public List<SerializableUserControl> serializableUserControls { get; set; }
+        [DataMember]
         public List<DrawLine> drawLines { get; set; }
         public SerializableContext()
         {

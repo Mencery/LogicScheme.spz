@@ -1,8 +1,11 @@
 ﻿
 using LogicScheme.Algorithm;
+using System.Runtime.Serialization;
+
 namespace LogicScheme.Elements
 {
-    class Nand2in1 : Element
+    [DataContract]
+    public class Nand2in1 : Element
     {
         public Nand2in1()
         {

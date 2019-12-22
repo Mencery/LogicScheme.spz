@@ -31,14 +31,6 @@ namespace LogicScheme.Serialization
                     formatterForUserControls.Serialize(fs,
                         FillSerializebleContext.fill(userControls,drawedLines));
                     
-                    
-
-                
-
-                
-
-                
-
 
             }
 

@@ -1,30 +1,28 @@
 ﻿using System;
 using System.Windows.Forms;
 using LogicScheme.Algorithm;
+using LogicScheme.ElementForm;
 using LogicScheme.Elements;
 
 namespace LogicScheme
 {
     [Serializable]
-    public partial class XorElement : UserControl, IElementForm
+    public partial class XorElement : MyUserControl, IElementForm
     {
-        //TODO private 
-        public RadioButton Input2;
-        public RadioButton Input1;
-        private RadioButton[] ports;
+     
         private int indexOfConnectPort = -1;
-        public RadioButton Output;
+     
         Panel[] groupButtons;
-        private Label label1;
-        Xor2in1 xor2In1;
+     
+       
 
         public XorElement()
         {
 
-            xor2In1 = new Xor2in1();
+            element = new Xor2in1();
 
             InitializeComponent();
-            label1.Text = xor2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
             ports = new RadioButton[3];
             ports[0] = Output;
             ports[1] = Input1;
@@ -36,10 +34,7 @@ namespace LogicScheme
 
         private void InitializeComponent()
         {
-            this.Input2 = new System.Windows.Forms.RadioButton();
-            this.Input1 = new System.Windows.Forms.RadioButton();
-            this.Output = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+          
             this.SuspendLayout();
             // 
             // Input2
@@ -176,7 +171,7 @@ namespace LogicScheme
         }
         public Element getElement()
         {
-            return xor2In1;
+            return element;
         }
         public void connectPortChecked()
         {
@@ -187,12 +182,12 @@ namespace LogicScheme
 
         private void OrElement_Click(object sender, EventArgs e)
         {
-            label1.Text = xor2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            label1.Text = xor2In1.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
 
         private void XorElement_Load(object sender, EventArgs e)

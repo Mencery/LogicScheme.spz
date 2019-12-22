@@ -1,8 +1,10 @@
 ﻿using LogicScheme.Algorithm;
+using System.Runtime.Serialization;
 
 namespace LogicScheme.Elements
 {
-    class Not  : Element
+    [DataContract]
+    public class Not  : Element
     {
         public Not()
         {

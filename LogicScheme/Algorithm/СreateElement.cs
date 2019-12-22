@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LogicScheme.ElementForm;
+using System.Collections.Generic;
 
 using System.Drawing;
 
@@ -8,7 +9,7 @@ namespace LogicScheme.Algorithm
 {
     class СreateElement
     {
-        public static void create(Form1 form, UserControl el, List<UserControl> userControls, MouseEventArgs e)
+        public static void create(Form1 form, MyUserControl el, List<UserControl> userControls, MouseEventArgs e)
         {
             el.Size = new Size(108, 48);
             el.Location = new Point(e.X, e.Y);
@@ -30,7 +31,7 @@ namespace LogicScheme.Algorithm
             userControls.Add(el);
             form.Controls.Add(el);
         }
-        public static void create(Form1 form, UserControl el, List<UserControl> userControls, int  positionX, int positionY)
+        public static void create(Form1 form, MyUserControl el, List<UserControl> userControls, int  positionX, int positionY)
         {
             el.Size = new Size(108, 48);
             el.Location = new Point(positionX, positionY);
@@ -51,6 +52,7 @@ namespace LogicScheme.Algorithm
 
             userControls.Add(el);
             form.Controls.Add(el);
+         
         }
     }
 }

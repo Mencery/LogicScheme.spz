@@ -1,36 +1,35 @@
 ﻿using System;
 using System.Windows.Forms;
 using LogicScheme.Algorithm;
+using LogicScheme.ElementForm;
 using LogicScheme.Elements;
 
 namespace LogicScheme
 {
     [Serializable]
-    public partial class NotElement : UserControl, IElementForm
+    public partial class NotElement : MyUserControl, IElementForm
     {
 
-        //TODO private 
+     
        
-        public RadioButton Input1;
-        private RadioButton[] ports;
+        
         private int indexOfConnectPort = -1;
-        public RadioButton Output;
-        Panel[] groupButtons;
-        private Label label1;
-        Not not;
+       
+      
+       
 
         public NotElement()
         {
 
-            not = new Not();
+            element = new Not();
 
             InitializeComponent();
-            label1.Text = not.Output.ToString();
+            label1.Text = element.Output.ToString();
             ports = new RadioButton[2];
             ports[0] = Output;
             ports[1] = Input1;
          
-            groupButtons = new Panel[ports.Length];
+           
 
 
         }
@@ -157,7 +156,7 @@ namespace LogicScheme
         }
         public Element getElement()
         {
-            return not;
+            return element;
         }
         public void connectPortChecked()
         {
@@ -168,12 +167,12 @@ namespace LogicScheme
 
         private void OrElement_Click(object sender, EventArgs e)
         {
-            label1.Text = not.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
 
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            label1.Text = not.Output.ToString();
+            label1.Text = element.Output.ToString();
         }
 
     }

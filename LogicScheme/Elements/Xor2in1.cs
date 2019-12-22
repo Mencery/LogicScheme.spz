@@ -1,8 +1,10 @@
 ﻿using LogicScheme.Algorithm;
+using System.Runtime.Serialization;
 
 namespace LogicScheme.Elements
 {
-    class Xor2in1 : Element
+    [DataContract]
+    public class Xor2in1 : Element
     {
         public Xor2in1()
         {
