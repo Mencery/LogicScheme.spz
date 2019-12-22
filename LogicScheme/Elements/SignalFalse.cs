@@ -20,10 +20,15 @@ namespace LogicScheme.Elements
             outer.Inputs[indexOfInput] = Output;
             outer.execute();
         }
+        public override void disconnect()
+        {
+            Output = StdLogicState.False;
+        }
 
         public override void execute()
         {
             throw new NotImplementedException();
         }
+      
     }
 }

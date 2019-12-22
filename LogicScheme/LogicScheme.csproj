@@ -54,9 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\Connect.cs" />
+    <Compile Include="Algorithm\DeleteLine.cs" />
+    <Compile Include="Algorithm\Disconnect.cs" />
     <Compile Include="Algorithm\FillSerializebleContext.cs" />
     <Compile Include="Algorithm\FindElementByPosition.cs" />
     <Compile Include="Algorithm\GetElementByPosition.cs" />
+    <Compile Include="Algorithm\InDiapason.cs" />
     <Compile Include="Algorithm\Load.cs" />
     <Compile Include="Algorithm\RecoverContext.cs" />
     <Compile Include="Algorithm\Save.cs" />

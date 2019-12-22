@@ -1,9 +1,7 @@
 ﻿
 
 using LogicScheme.Algorithm;
-using LogicScheme.Serialization;
-using LogicScheme.Serialization.Load;
-using System;
+using LogicScheme.ElementForm;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -13,11 +11,12 @@ namespace LogicScheme
 {
     public partial class Form1 : Form
     {
-       
-       public List<UserControl> userControls;
+
+        public List<UserControl> userControls;
         public List<DrawLine> drawedLines;
         DrawLine drawLine = new DrawLine();
-
+        bool isClicked = false;
+       
         public Form1()
         {
             userControls = new List<UserControl>();
@@ -42,7 +41,7 @@ namespace LogicScheme
         }
 
 
-        bool isClicked = false;
+
         /// <summary>
         /// start of paint connection line 
         /// </summary>
@@ -50,13 +49,22 @@ namespace LogicScheme
         /// <param name="e">parameters of mouse event</param>
         public void element_MouseDown(object sender, MouseEventArgs e)
         {
-
-
             drawLine = new DrawLine();
-            drawLine.setStartPoint(e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
 
-            isClicked = true;
+            if (e.Button == MouseButtons.Left)
+            {
+                drawLine.setStartPoint(e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
 
+                isClicked = true;
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                MyUserControl temp = sender as MyUserControl;
+                Disconect.disconnect(temp);
+                DeleteLine.delete(drawedLines, temp);
+                Invalidate();
+
+            }
         }
         /// <summary>
         /// painting connection line 
@@ -65,11 +73,16 @@ namespace LogicScheme
         /// <param name="e">parameters of mouse event</param>
         public void element_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isClicked)
+            if (e.Button == MouseButtons.Left)
             {
-                drawLine.draw(e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
-                Invalidate();
+                if (isClicked)
+                {
+                    drawLine.draw(e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
+                    Invalidate();
+                }
             }
+           
+          
         }
         /// <summary>
         /// end of painting connection line and create connection, if logic element found, else delete line
@@ -78,24 +91,27 @@ namespace LogicScheme
         /// <param name="e">parameters of mouse event</param>
         public void element_MouseUp(object sender, MouseEventArgs e)
         {
-            isClicked = false;
-            drawLine.save();
-
-            UserControl input = sender as UserControl;
-            UserControl output = FindElementByPosition.GetElementByPosition(userControls, e, input);
-            if (output == null)
+            if (e.Button == MouseButtons.Left)
             {
-                drawLine.delete();
-                Invalidate();
-                return;
-            }
-            else
-            {
-                drawedLines.Add(drawLine);
-                (output as IElementForm).getElementByPosition(e, input);
-            }
+                isClicked = false;
+                drawLine.save();
 
+                UserControl input = sender as UserControl;
+                UserControl output = FindElementByPosition.GetElementByPosition(userControls, e, input);
+                if (output == null)
+                {
+                    drawLine.delete();
+                    Invalidate();
+                    return;
+                }
+                else
+                {
+                    drawedLines.Add(drawLine);
+                    (output as IElementForm).getElementByPosition(e, input);
+                }
 
+            }
+          
 
         }
 
@@ -122,7 +138,7 @@ namespace LogicScheme
             }
         }
 
-        
+
 
         private void and2in1button_MouseUp(object sender, MouseEventArgs e)
         {
@@ -159,12 +175,12 @@ namespace LogicScheme
             СreateElement.create(this, xor, userControls, e.X + xor2in1button.Location.X, e.Y);
         }
 
-        private void saveToolStripMenuItem_Click(object sender, System.EventArgs e)=>
+        private void saveToolStripMenuItem_Click(object sender, System.EventArgs e) =>
             Save.execute(userControls, drawedLines);
-        
 
-        private void loadToolStripMenuItem_Click(object sender, System.EventArgs e)=>
-            LogicScheme.Algorithm.Load.execute(this, userControls,drawedLines);
+
+        private void loadToolStripMenuItem_Click(object sender, System.EventArgs e) =>
+            LogicScheme.Algorithm.Load.execute(this, userControls, drawedLines);
 
         private void signalBoxTrue1_Load(object sender, System.EventArgs e)
         {

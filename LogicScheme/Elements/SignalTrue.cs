@@ -19,7 +19,10 @@ namespace LogicScheme.Elements
             outer.Inputs[indexOfInput] = Output;
             outer.execute();
         }
-
+        public override void disconnect()
+        {
+            Output = StdLogicState.True;
+        }
         public override void execute()
         {
             throw new NotImplementedException();
