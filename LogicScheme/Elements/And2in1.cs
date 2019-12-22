@@ -2,7 +2,7 @@
 using LogicScheme.Algorithm;
 namespace LogicScheme.Elements
 {
-    class And2in1 : Element
+    public class And2in1 : Element
     {
         public And2in1()
         {

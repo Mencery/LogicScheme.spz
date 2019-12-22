@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using LogicScheme.Algorithm;
 namespace LogicScheme
 {
-
+    [Serializable]
     public partial class OrElement : UserControl, IElementForm
     {
         //TODO private 

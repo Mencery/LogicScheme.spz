@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicScheme.Elements
 {
-    class SignalFalse: Element
+   public class SignalFalse: Element
     {
         public SignalFalse()
         {
@@ -14,6 +14,7 @@ namespace LogicScheme.Elements
         }
         public override void connect(Element outer, bool fromOutputToInput, int indexOfInput = 0)
         {
+           
             outer.Inputs[indexOfInput] = Output;
             outer.execute();
         }

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace LogicScheme
 {
-  public abstract class Element
+    [Serializable]
+    public abstract class Element
     {
-        protected internal StdLogicState Output;
-        protected internal StdLogicState[] Inputs;
-     
-       
+        public StdLogicState Output { get; set; }
+        public StdLogicState[] Inputs { get; set; }
+
+
 
         /// <summary>
         /// 

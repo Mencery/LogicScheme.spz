@@ -5,7 +5,7 @@ using LogicScheme.Elements;
 
 namespace LogicScheme
 {
-
+    [Serializable]
     public partial class XorElement : UserControl, IElementForm
     {
         //TODO private 
@@ -115,6 +115,7 @@ namespace LogicScheme
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "XorElement";
             this.Size = new System.Drawing.Size(110, 48);
+            this.Load += new System.EventHandler(this.XorElement_Load);
             this.Click += new System.EventHandler(this.OrElement_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,6 +193,11 @@ namespace LogicScheme
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             label1.Text = xor2In1.Output.ToString();
+        }
+
+        private void XorElement_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

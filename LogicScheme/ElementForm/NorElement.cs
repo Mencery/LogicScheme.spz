@@ -5,7 +5,7 @@ using LogicScheme.Elements;
 
 namespace LogicScheme
 {
-
+    [Serializable]
     public partial class NorElement : UserControl, IElementForm
     {
         //TODO private 

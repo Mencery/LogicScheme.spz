@@ -5,7 +5,8 @@ using LogicScheme.Elements;
 
 namespace LogicScheme
 {
-    public partial class NandElement : UserControl, IElementForm
+    [Serializable]
+    public  class NandElement : UserControl, IElementForm
     {
 
         //TODO private 

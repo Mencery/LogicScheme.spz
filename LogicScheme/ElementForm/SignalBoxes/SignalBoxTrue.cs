@@ -2,52 +2,53 @@
 using System.Windows.Forms;
 using LogicScheme.Elements;
 using LogicScheme.Algorithm;
-namespace LogicScheme.SignalBox
+using System;
+using LogicScheme.ElementForm;
+
+namespace LogicScheme.SignalBoxes
 {
-    class SignalBoxTrue : UserControl, IElementForm
+    [Serializable]
+   public class SignalBoxTrue : MyUserControl, IElementForm
     {
-        private SignalTrue signalTrue;
-       
-        private RadioButton TrueButton;
-        private RadioButton[] ports;
-       
+        
         private Label True;
     
         private System.ComponentModel.IContainer components;
 
 
         public SignalBoxTrue(){
-            signalTrue = new SignalTrue();
+         
           
             ports = new RadioButton[1];
+            element = new SignalTrue();
             InitializeComponent();
-            ports[0] = TrueButton;
+            ports[0] = Output;
            
         }
 
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.TrueButton = new System.Windows.Forms.RadioButton();
+          
             this.True = new System.Windows.Forms.Label();
             
             this.SuspendLayout();
             // 
             // TrueButton
             // 
-            this.TrueButton.AutoCheck = false;
-            this.TrueButton.AutoSize = true;
-            this.TrueButton.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.TrueButton.Location = new System.Drawing.Point(34, 3);
-            this.TrueButton.Name = "TrueButton";
-            this.TrueButton.Size = new System.Drawing.Size(14, 13);
-            this.TrueButton.TabIndex = 0;
-            this.TrueButton.TabStop = true;
-            this.TrueButton.UseMnemonic = false;
-            this.TrueButton.UseVisualStyleBackColor = true;
-            this.TrueButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseDown);
-            this.TrueButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseMove);
-            this.TrueButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseUp);
+            this.Output.AutoCheck = false;
+            this.Output.AutoSize = true;
+            this.Output.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.Output.Location = new System.Drawing.Point(34, 3);
+            this.Output.Name = "TrueButton";
+            this.Output.Size = new System.Drawing.Size(14, 13);
+            this.Output.TabIndex = 0;
+            this.Output.TabStop = true;
+            this.Output.UseMnemonic = false;
+            this.Output.UseVisualStyleBackColor = true;
+            this.Output.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseDown);
+            this.Output.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseMove);
+            this.Output.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseUp);
             // 
             // True
             // 
@@ -61,7 +62,7 @@ namespace LogicScheme.SignalBox
             // SignalBoxTrue
             // 
             this.Controls.Add(this.True);
-            this.Controls.Add(this.TrueButton);
+            this.Controls.Add(this.Output);
             this.Name = "SignalBoxTrue";
             this.Size = new System.Drawing.Size(51, 18);
             this.Load += new System.EventHandler(this.SignalBox_Load);
@@ -100,10 +101,7 @@ namespace LogicScheme.SignalBox
         public Element getElement()
         {
 
-         
-                return signalTrue;
-           
-           
+                return element;
              
         }
         public void connectPortChecked()

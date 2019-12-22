@@ -1,20 +1,22 @@
 ﻿using System.Windows.Forms;
 using LogicScheme.Elements;
 using LogicScheme.Algorithm;
-
+using System;
+using LogicScheme.ElementForm;
 
 namespace LogicScheme.SignalBoxes
 {
-    public partial class SignalBoxFalse : UserControl, IElementForm
+    [Serializable]
+    public partial class SignalBoxFalse : MyUserControl, IElementForm
     {
-        private SignalFalse signalFalse;
-        private RadioButton[] ports;
+        
+      
         public SignalBoxFalse()
         {
             ports = new RadioButton[1];
-            signalFalse = new SignalFalse();
+            element = new SignalFalse();
             InitializeComponent();
-            ports[0] = FalseButton;
+            ports[0] = Output;
         }
 
         public bool getElementByPosition(MouseEventArgs e, UserControl input)
@@ -30,7 +32,7 @@ namespace LogicScheme.SignalBoxes
         {
 
 
-            return signalFalse;
+            return element;
 
 
 

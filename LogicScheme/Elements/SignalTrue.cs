@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LogicScheme.Elements
 {
-    class SignalTrue : Element
+    [Serializable]
+    public class SignalTrue : Element
     {
         public SignalTrue(){
             Output = StdLogicState.True;

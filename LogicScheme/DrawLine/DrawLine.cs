@@ -1,17 +1,27 @@
 ﻿
 
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-
+using System.Xml.Serialization;
 
 namespace LogicScheme
 {
-    class DrawLine
+    [XmlInclude(typeof(TwoPoints))]
+    [Serializable]
+    public class DrawLine
     {
-        Point pointStart  = new Point();
-         Point pointEnd =  new Point();
-         List<TwoPoints>  twoPoints= new List<TwoPoints>();
+        public Point pointStart;
         
+        public Point pointEnd;
+
+        public List<TwoPoints> twoPoints { get; set; }
+        public DrawLine()
+        {
+            pointStart = new Point();
+            pointEnd = new Point();
+            twoPoints = new List<TwoPoints>();
+        }
         public void setStartPoint(int x, int y)
         {
             pointStart.X = x;
@@ -22,41 +32,41 @@ namespace LogicScheme
         }
         public void draw(int x, int y)
         {
-            if(!rangeX(x) && !rangeY(y))
+            if (!rangeX(x) && !rangeY(y))
             {
-               
-                    save();
-                    pointStart.Y = pointEnd.Y;
-                    pointStart.X = pointEnd.X;
+
+                save();
+                pointStart.Y = pointEnd.Y;
+                pointStart.X = pointEnd.X;
 
 
             }
-           
-          if(rangeX(x) && !rangeY(y))
+
+            if (rangeX(x) && !rangeY(y))
             {
-               
-              
-                    x = pointStart.X;
-               
-               
+
+
+                x = pointStart.X;
+
+
             }
 
-          
-            else if(!rangeX(x) && rangeY(y))
+
+            else if (!rangeX(x) && rangeY(y))
             {
-             
-                    y = pointStart.Y;
-                
-              
-                
-               
+
+                y = pointStart.Y;
+
+
+
+
             }
-         
-            
-                pointEnd.X = x;
-                pointEnd.Y = y;
-            
-            
+
+
+            pointEnd.X = x;
+            pointEnd.Y = y;
+
+
         }
         /// <summary>
         /// save line that finished drawing
@@ -76,15 +86,15 @@ namespace LogicScheme
             pointEnd.Y = 0;
             twoPoints.Clear();
         }
-        public  Point getPointStart()
+        public Point getPointStart()
         {
             return pointStart;
         }
-        public  Point getPointEnd()
+        public Point getPointEnd()
         {
             return pointEnd;
         }
-        public  List<TwoPoints> getTwoPoints()
+        public List<TwoPoints> getTwoPoints()
         {
             return twoPoints;
         }
@@ -93,12 +103,12 @@ namespace LogicScheme
         /// </summary>
         /// <param name="x,y">input position of cursor</param>
         /// <returns></returns>
-        bool rangeX(int x )
+        bool rangeX(int x)
         {
-            int range = 7; 
-            return x + range >= pointStart.X && x - range <= pointStart.X; 
+            int range = 7;
+            return x + range >= pointStart.X && x - range <= pointStart.X;
         }
-         bool rangeY(int y)
+        bool rangeY(int y)
         {
             int range = 7;
             return y + range >= pointStart.Y && y - range <= pointStart.Y;

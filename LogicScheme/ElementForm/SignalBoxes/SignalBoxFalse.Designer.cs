@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.False = new System.Windows.Forms.Label();
-            this.FalseButton = new System.Windows.Forms.RadioButton();
+            //this.Output = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // False
@@ -43,25 +43,25 @@
             // 
             // FalseButton
             // 
-            this.FalseButton.AutoSize = true;
-            this.FalseButton.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.FalseButton.Location = new System.Drawing.Point(38, 0);
-            this.FalseButton.Name = "FalseButton";
-            this.FalseButton.Size = new System.Drawing.Size(14, 13);
-            this.FalseButton.TabIndex = 4;
-            this.FalseButton.TabStop = true;
-            this.FalseButton.UseMnemonic = false;
-            this.FalseButton.UseVisualStyleBackColor = true;
-            this.FalseButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseDown);
-            this.FalseButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseMove);
-            this.FalseButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseUp);
+            this.Output.AutoSize = true;
+            this.Output.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.Output.Location = new System.Drawing.Point(38, 0);
+            this.Output.Name = "FalseButton";
+            this.Output.Size = new System.Drawing.Size(14, 13);
+            this.Output.TabIndex = 4;
+            this.Output.TabStop = true;
+            this.Output.UseMnemonic = false;
+            this.Output.UseVisualStyleBackColor = true;
+            this.Output.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseDown);
+            this.Output.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseMove);
+            this.Output.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RadioButton_MouseUp);
             // 
             // SignalBoxFalse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.False);
-            this.Controls.Add(this.FalseButton);
+            this.Controls.Add(this.Output);
             this.Name = "SignalBoxFalse";
             this.Size = new System.Drawing.Size(51, 18);
             this.ResumeLayout(false);
@@ -72,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label False;
-        private System.Windows.Forms.RadioButton FalseButton;
+       
     }
 }

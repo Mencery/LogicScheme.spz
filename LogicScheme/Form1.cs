@@ -1,19 +1,22 @@
 ﻿
 
-using System.Collections.Generic;
-
-using System.Drawing;
-
-using System.Windows.Forms;
 using LogicScheme.Algorithm;
+using LogicScheme.Serialization;
+using LogicScheme.Serialization.Load;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 
 namespace LogicScheme
 {
     public partial class Form1 : Form
     {
-        List<UserControl> userControls;
-        List<DrawLine> drawedLines;
+        public static string XML_FORMAT = "XML files(.xml)|*.xml|all Files(*.*)|*.*";
+      
+       public List<UserControl> userControls;
+        public List<DrawLine> drawedLines;
         DrawLine drawLine = new DrawLine();
 
         public Form1()
@@ -21,9 +24,9 @@ namespace LogicScheme
             userControls = new List<UserControl>();
             drawedLines = new List<DrawLine>();
             InitializeComponent();
-           userControls.Add(signalBoxTrue1);
+            userControls.Add(signalBoxTrue1);
             userControls.Add(signalBoxFalse1);
-            
+
         }
         /// <summary>
         /// Method to create illustrated element  on the button  at the point at which the cursor were at the moment mouse up
@@ -49,12 +52,12 @@ namespace LogicScheme
         public void element_MouseDown(object sender, MouseEventArgs e)
         {
 
-         
-                drawLine = new DrawLine();
-                drawLine.setStartPoint(e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
 
-                isClicked = true;
-            
+            drawLine = new DrawLine();
+            drawLine.setStartPoint(e.X + (sender as UserControl).Location.X, e.Y + (sender as UserControl).Location.Y);
+
+            isClicked = true;
+
         }
         /// <summary>
         /// painting connection line 
@@ -80,7 +83,7 @@ namespace LogicScheme
             drawLine.save();
 
             UserControl input = sender as UserControl;
-            UserControl output = getElementByPosition(e, input);
+            UserControl output = FindElementByPosition.GetElementByPosition(userControls, e, input);
             if (output == null)
             {
                 drawLine.delete();
@@ -90,36 +93,13 @@ namespace LogicScheme
             else
             {
                 drawedLines.Add(drawLine);
-                (output as IElementForm).getElementByPosition(e, input); 
+                (output as IElementForm).getElementByPosition(e, input);
             }
 
 
 
         }
-        /// <summary>
-        /// find logic element by position
-        /// </summary>
-        /// <param name="e">parameters of mouse event from   element_MouseUp(object sender, MouseEventArgs e)</param>
-        /// <param name="input">input logic element</param>
-        /// <returns>found element</returns>
-        UserControl getElementByPosition(MouseEventArgs e, UserControl input)
-        {
-            UserControl userControl = null;
-            int input_x = e.X + input.Location.X;
-            int input_y = e.Y + input.Location.Y;
-            int x, y;
-            foreach (var element in userControls)
-            {
-                x = element.Location.X;
-                y = element.Location.Y;
-                if (x <= input_x && x + 108 >= input_x && y <= input_y && y + 48 >= input_y)
-                {
-                    userControl = element;
-                }
-            }
-            return userControl;
 
-        }
 
         /// <summary>
         /// procces of painting in form
@@ -143,15 +123,7 @@ namespace LogicScheme
             }
         }
 
-        private void signalBoxTrue1_Load(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, System.EventArgs e)
-        {
-
-        }
+        
 
         private void and2in1button_MouseUp(object sender, MouseEventArgs e)
         {
@@ -171,7 +143,7 @@ namespace LogicScheme
         {
             var nand = new NandElement();
 
-            СreateElement.create(this, nand, userControls, e.X + nand2in1button.Location.X, e.Y );
+            СreateElement.create(this, nand, userControls, e.X + nand2in1button.Location.X, e.Y);
         }
 
         private void nor2in1button_MouseUp(object sender, MouseEventArgs e)
@@ -186,6 +158,49 @@ namespace LogicScheme
             var xor = new XorElement();
 
             СreateElement.create(this, xor, userControls, e.X + xor2in1button.Location.X, e.Y);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = XML_FORMAT;
+
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = saveFileDialog.FileName;
+
+
+            ISave save = new SaveAsXML();
+            save.execute(filename, userControls, drawedLines);
+            MessageBox.Show("saved");
+
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+
+                openFileDialog.Filter = XML_FORMAT;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+               string filePath = openFileDialog.FileName;
+                ILoad load = new LoadXml();
+               RecoverContext.recovery(this, load.execute(filePath));
+                
+            }
+
+        }
+
+        private void signalBoxTrue1_Load(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void screenshotToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Screenshot.create(this);
         }
     }
 }

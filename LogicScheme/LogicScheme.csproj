@@ -53,12 +53,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\Connect.cs" />
+    <Compile Include="Algorithm\FillSerializebleContext.cs" />
+    <Compile Include="Algorithm\FindElementByPosition.cs" />
     <Compile Include="Algorithm\GetElementByPosition.cs" />
+    <Compile Include="Algorithm\RecoverContext.cs" />
+    <Compile Include="Algorithm\Screenshot.cs" />
     <Compile Include="Algorithm\СreateElement.cs" />
     <Compile Include="ElementForm\AndElement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DrawLine.cs" />
+    <Compile Include="DrawLine\DrawLine.cs" />
+    <Compile Include="ElementForm\MyUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ElementForm\NandElement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -79,13 +86,19 @@
     <Compile Include="Elements\SignalTrue.cs" />
     <Compile Include="Elements\Xor2in1.cs" />
     <Compile Include="IElementForm.cs" />
-    <Compile Include="SignalBoxes\SignalBoxFalse.cs">
+    <Compile Include="SerializationContext\SerializableUserControl.cs" />
+    <Compile Include="SerializationContext\SerializableContext.cs" />
+    <Compile Include="Serialization\Load\ILoad.cs" />
+    <Compile Include="Serialization\Load\LoadXml.cs" />
+    <Compile Include="Serialization\Save\ISave.cs" />
+    <Compile Include="Serialization\Save\SaveAsXML.cs" />
+    <Compile Include="ElementForm\SignalBoxes\SignalBoxFalse.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SignalBoxes\SignalBoxFalse.Designer.cs">
+    <Compile Include="ElementForm\SignalBoxes\SignalBoxFalse.Designer.cs">
       <DependentUpon>SignalBoxFalse.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignalBoxes\SignalBoxTrue\SignalBoxTrue.cs">
+    <Compile Include="ElementForm\SignalBoxes\SignalBoxTrue.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="State.cs" />
@@ -102,7 +115,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TwoPoints.cs" />
+    <Compile Include="DrawLine\TwoPoints.cs" />
     <EmbeddedResource Include="ElementForm\AndElement.resx">
       <DependentUpon>AndElement.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +133,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ElementForm\OrElement.resx">
       <DependentUpon>OrElement.cs</DependentUpon>
@@ -137,10 +151,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SignalBoxes\SignalBoxFalse.resx">
+    <EmbeddedResource Include="ElementForm\SignalBoxes\SignalBoxFalse.resx">
       <DependentUpon>SignalBoxFalse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignalBoxes\SignalBoxTrue\SignalBoxTrue.resx">
+    <EmbeddedResource Include="ElementForm\SignalBoxes\SignalBoxTrue.resx">
       <DependentUpon>SignalBoxTrue.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -237,5 +251,6 @@
   <ItemGroup>
     <None Include="Resources\Xor.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

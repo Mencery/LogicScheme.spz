@@ -1,11 +1,12 @@
 ﻿
+using System;
 using System.Drawing;
 
 
 namespace LogicScheme
 {
-
-    class TwoPoints
+    [Serializable]
+    public class TwoPoints
     {
         public Point pointStart { get; set; }
         public Point pointEnd { get; set; }
@@ -14,6 +15,10 @@ namespace LogicScheme
         {
             this.pointStart = pointStart;
             this.pointEnd = pointEnd;
+        }
+        public TwoPoints()
+        {
+           
         }
 
     }
