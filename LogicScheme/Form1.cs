@@ -61,7 +61,7 @@ namespace LogicScheme
             {
                 MyUserControl temp = sender as MyUserControl;
                 Disconect.disconnect(temp);
-                DeleteLine.delete(drawedLines, temp);
+                DeleteLine.delete(userControls,drawedLines, temp);
                 Invalidate();
 
             }
@@ -180,7 +180,7 @@ namespace LogicScheme
 
 
         private void loadToolStripMenuItem_Click(object sender, System.EventArgs e) =>
-            LogicScheme.Algorithm.Load.execute(this, userControls, drawedLines);
+           Algorithm.Load.execute(this, userControls, drawedLines);
 
         private void signalBoxTrue1_Load(object sender, System.EventArgs e)
         {
@@ -191,6 +191,8 @@ namespace LogicScheme
         {
             Screenshot.create(this);
         }
+
+       
     }
 }
 
