@@ -13,7 +13,7 @@ namespace LogicScheme.Algorithm
     public class Save
     {
         public static string FORMAT = "XML files(.xml)|*.xml|JSON files(.json)|*.json";
-
+         
         public static void execute(List<UserControl> userControls, List<DrawLine> drawedLines)
         {
 
@@ -34,8 +34,9 @@ namespace LogicScheme.Algorithm
             {
                 save = new SaveAsJSON();
             }
-            
-            else{
+          
+            else
+            {
                 throw new InvalidDataException();
             }
             save.execute(filename, userControls, drawedLines);

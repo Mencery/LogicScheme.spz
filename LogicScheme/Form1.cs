@@ -189,7 +189,7 @@ namespace LogicScheme
 
         private void screenshotToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            Screenshot.create(this);
+            Screenshot.create(this, userControls, drawedLines);
         }
 
        

@@ -11,7 +11,8 @@ namespace LogicScheme.Algorithm
 {
     class Load
     {
-        public static string FORMAT = "XML files(.xml)|*.xml|JSON files(.json)|*.json";
+        public static string FORMATS = "XML files(.xml)|*.xml|JSON files(.json)|*.json" +
+            "|BMP files(.bmp)|*.bmp";
 
         public static void execute(Form1 form,List<UserControl> userControls, List<DrawLine> drawedLines)
         {
@@ -19,7 +20,7 @@ namespace LogicScheme.Algorithm
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             ILoad load;
-            //openFileDialog.Filter = XML_FORMAT;
+            openFileDialog.Filter = FORMATS;
             string filePath;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -37,7 +38,11 @@ namespace LogicScheme.Algorithm
                 {
                     load = new LoadJSON();
                 }
+                else if (".bmp".Equals(filePath.Substring(filePath.Length - 4)))
+                {
+                    load = new LoadBmp();
 
+                }
                 else
                 {
                     throw new InvalidDataException();

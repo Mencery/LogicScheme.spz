@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LogicScheme.Serialization;
+using LogicScheme.Serialization.Save;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,7 +14,7 @@ namespace LogicScheme.Algorithm
 
     {
         public static string IMAGE_FORMATS = "Bitmap Image (.bmp)|*.bmp";
-        public static void create( Form1 frm)
+        public static void create( Form1 frm, List<UserControl> userControls, List<DrawLine> drawedLines)
         {
             Bitmap Image = new Bitmap(frm.Width, frm.Height);
             frm.DrawToBitmap(Image, new Rectangle(0, 0, frm.Width, frm.Height));
@@ -24,6 +26,8 @@ namespace LogicScheme.Algorithm
             string ImagePath = string.Format(saveFileDialog.FileName, DateTime.Now.Ticks);
             
             Image.Save(ImagePath, System.Drawing.Imaging.ImageFormat.Png);
+            ISave save = new SaveScreenShot();
+            save.execute(ImagePath, userControls, drawedLines);
         }
     }
 }
